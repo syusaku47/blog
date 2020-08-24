@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', 'PostController@index' ) ->name('post.index');
-Route::get('/new', 'PostController@new' ) ->name('post.new');
-Route::get('/create', 'PostController@create' );
-Route::get('/post/{id}', 'PostController@show' ) ->name('post.show');
-Route::get('/post/{id}/edit', 'PostController@edit' ) ->name('post.edit');
-Route::get('/post/{id}/update', 'PostController@update' );
-Route::get('/post/{id}/delete', 'PostController@delete' );
+Route::get('/index', 'PostsController@index' ) ->name('posts.index');
+Route::get('/new', 'PostsController@new' ) ->name('posts.new');
+Route::post('/create', 'PostsController@create' ) ->name('posts.create');
+Route::get('/posts/{id}', 'PostsController@show' ) ->name('posts.show');
+Route::get('/posts/{id}/edit', 'PostsController@edit' ) ->name('posts.edit');
+Route::get('/posts/{id}/update', 'PostsController@update' ) ->name('posts.update');
+Route::get('/posts/{id}/delete', 'PostsController@delete' ) ->name('posts.delete');
