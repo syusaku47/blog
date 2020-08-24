@@ -34,12 +34,29 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        View::make('posts/edit');
+        $post = Post::find($id);
+        return view('posts/edit',[
+        'post' => $post
+        ]);
     }
-    public function show()
+
+    public function update(int $id, Request $request)
+    {        
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->text = $request->text;
+        $post->updated_at = Carbon::now();
+        $post->save();
+
+        return redirect()->route('posts.index');
+    }
+    public function show($id)
     {
-        View::make('posts/show');
+        $post = Post::find($id);
+        return view('posts/show',[
+        'post' => $post
+        ]);
     }
 }
