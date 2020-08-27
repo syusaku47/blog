@@ -17,4 +17,26 @@
     <!-- <p class="text-right font-weight-bold mr-10">作成者名</p> -->
   </div>
 </div>
+  <form method="POST" action="{{ route('posts.delete',['id' => $post->id]) }}">
+  @csrf
+<div class="text-right">
+  <input type="submit" class="btn btn-outline-denger" value="削除" data-id="{{ $post->id }}" onclick="deletePost(this);">
+</div>
+  </form>
+
+
+<script>
+<!--
+/************************************
+削除ボタンを押してすぐにレコードが削除されないように
+javascriptで確認メッセージを流します。
+*************************************/
+//-->
+function deletePost(e) {
+    'use strict';
+    if (confirm('本当に削除していいですか?')) {
+    document.getElementById('delete_' + e.dataset.id).submit();
+    }
+}
+</script>
 @endsection

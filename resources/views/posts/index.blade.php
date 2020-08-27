@@ -22,10 +22,11 @@
       @foreach ($posts as $post)
       <tr>
         <th>{{$post->id}}</th>
-        <td><a href=" {{ route('posts.show', ['id' => $post->id]) }}" class="text-muted"> {{$post->title}} </a></td>
-        <td><a href=" {{ route('posts.show', ['id' => $post->id]) }}" class="text-muted"> {{$post->text}} </a></td>
+        <td>{{$post->title}} </a></td>
+        <td>{{$post->text}} </a></td>
         <td>{{$post->created_at}}</td>
-        <td>{{$post->updated_at}}</td>
+        <td><a href="{{ route('posts.show', ['id'=>$post->id]) }}" class="text-info" >詳細を見る</a></td>
+        
       </tr>
       @endforeach
     </tbody>
