@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateFolder;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
@@ -22,7 +23,7 @@ class PostsController extends Controller
         return view('posts/new');
     }
 
-    public function create(Request $request)
+    public function create(CreateFolder $request)
     {
         $post = new Post();
         $post->title = $request->title;
