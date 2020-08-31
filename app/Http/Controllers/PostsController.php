@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFolder;
 use App\Post;
+use App\Comment;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
@@ -53,11 +54,14 @@ class PostsController extends Controller
 
         return redirect()->route('posts.index');
     }
-    public function show($id)
+    public function show(int $id)
     {
         $post = Post::find($id);
+        // $comments = Comment::where('post_id',$id)->get();
+        $comments = $post->comments()->get(); //モデルクラスにおけるリレーション
         return view('posts/show',[
-        'post' => $post
+        'post' => $post,
+        'comments' => $comments
         ]);
     }
 
