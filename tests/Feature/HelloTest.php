@@ -15,6 +15,11 @@ class HelloTest extends TestCase
      * @return void
      */
 
+    public function setUp():void
+    {
+        parent::setUp();
+        $this->seed('PostsTableSeeder');
+    }
     
     public function testHello()
     {
@@ -25,5 +30,11 @@ class HelloTest extends TestCase
         
         $response = $this->get('/new');
         $response->assertStatus(200);
+        $response = $this->get('/create');
+        $response->assertStatus(200);
+        
+        $response = $this->get('/posts/3/edit');
+        $response->assertStatus(200);
+
     } 
 }

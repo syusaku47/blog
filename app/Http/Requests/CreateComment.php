@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFolder extends FormRequest
+class CreateComment extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class CreateFolder extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:20',
+            'name' => 'required|max:20',
             'text' => 'required|max:50',
         ];
     }
@@ -32,7 +32,7 @@ class CreateFolder extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'タイトル',
+            'name' => '名前',
             'text' => '内容',
         ];
     }

@@ -7,14 +7,14 @@
     <a href="/index" class="btn btn-outline-dark">戻る</a>
   </div>
 </div>
-<div class="row">
-        <div class="col col-md-offset-3 col-md-10">
-          <nav class="panel panel-default">
-            <div class="panel-heading">フォルダを追加する</div>
+    <div class="row">
+      <div class="col col-md-offset-3 col-md-10">
+        <nav class="panel panel-default">
+          <div class="panel-heading">フォルダを追加する</div>
             <div class="panel-body">
             @if ($errors->any())
               <div class="alert alert danger">
-                <ul>
+                <ul >
                   @foreach ($errors->all() as $error)
                   <li>{{$error}}</li>
                   @endforeach

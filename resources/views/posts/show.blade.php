@@ -24,6 +24,14 @@
 </div>
   </form>
 
+  
+  <form method="POST" action="{{ route('posts.delete',['id' => $post->id]) }}">
+  @csrf
+<div class="text-right">
+  <input type="submit" class="btn btn-outline-denger" value="削除" data-id="{{ $post->id }}" onclick="deletePost(this);">
+</div>
+  </form>
+
 
 <script>
 <!--
